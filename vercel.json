@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "build",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "framework": "create-react-app",
+  "env": {
+    "CI": "true"
+  }
+}

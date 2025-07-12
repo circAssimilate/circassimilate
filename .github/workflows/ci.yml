@@ -40,6 +40,7 @@ jobs:
         run: pnpm run build
         env:
           CI: true
+          GENERATE_SOURCEMAP: false
 
       - name: Upload coverage reports
         uses: codecov/codecov-action@v3
