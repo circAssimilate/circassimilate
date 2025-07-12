@@ -36,7 +36,9 @@ jobs:
         run: pnpm run format:check
 
       - name: Run tests
-        run: pnpm run test -- --coverage --watchAll=false
+        run: pnpm run test:ci
+        env:
+          CI: true
 
       - name: Build application (includes linting)
         run: pnpm run build
