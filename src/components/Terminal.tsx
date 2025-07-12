@@ -122,7 +122,6 @@ const Terminal: React.FC = () => {
             onKeyDown={handleInputKeyDown}
             className="terminal-input"
             placeholder="Enter command..."
-            autoFocus
           />
         </div>
       </div>

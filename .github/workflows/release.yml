@@ -35,12 +35,15 @@ jobs:
       - name: Check formatting
         run: pnpm run format:check
 
+      - name: Run linting
+        run: pnpm run lint
+
       - name: Run tests
         run: pnpm run test:ci
         env:
           CI: true
 
-      - name: Build application (includes linting)
+      - name: Build application
         run: pnpm run build
         env:
           CI: true
