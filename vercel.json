@@ -2,10 +2,8 @@
   "buildCommand": "pnpm run build",
   "outputDirectory": "build",
   "installCommand": "pnpm install --frozen-lockfile",
-  "framework": "create-react-app",
+  "framework": "vite",
   "env": {
-    "CI": "true",
-    "DISABLE_ESLINT_PLUGIN": "true",
-    "GENERATE_SOURCEMAP": "false"
+    "CI": "true"
   }
 }
