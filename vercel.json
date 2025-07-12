@@ -4,6 +4,8 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "framework": "create-react-app",
   "env": {
-    "CI": "true"
+    "CI": "true",
+    "DISABLE_ESLINT_PLUGIN": "true",
+    "GENERATE_SOURCEMAP": "false"
   }
 }
