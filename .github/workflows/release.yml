@@ -11,7 +11,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -53,10 +53,10 @@ jobs:
           COMMIT_BODY=$(git log -1 --pretty=%b)
           COMMIT_SHA=$(git rev-parse --short HEAD)
           TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-          
+
           # Create a clean tag name from commit title
           TAG_NAME="v$(date +%Y.%m.%d)-${COMMIT_SHA}"
-          
+
           echo "commit-title=${COMMIT_TITLE}" >> $GITHUB_OUTPUT
           echo "commit-body=${COMMIT_BODY}" >> $GITHUB_OUTPUT
           echo "commit-sha=${COMMIT_SHA}" >> $GITHUB_OUTPUT
@@ -73,26 +73,26 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.commit-info.outputs.tag-name }}
-          name: "Release ${{ steps.commit-info.outputs.tag-name }}: ${{ steps.commit-info.outputs.commit-title }}"
+          name: 'Release ${{ steps.commit-info.outputs.tag-name }}: ${{ steps.commit-info.outputs.commit-title }}'
           body: |
             ## 🚀 ${{ steps.commit-info.outputs.commit-title }}
-            
+
             **Commit:** ${{ steps.commit-info.outputs.commit-sha }}  
             **Build Date:** ${{ steps.commit-info.outputs.timestamp }}
-            
+
             ### Changes
             ${{ steps.commit-info.outputs.commit-body }}
-            
+
             ### Build Artifacts
             - **circassimilate-build-${{ steps.commit-info.outputs.commit-sha }}.tar.gz** - Production build ready for deployment
-            
+
             ### Deployment
             ```bash
             # Extract and serve
             tar -xzf circassimilate-build-${{ steps.commit-info.outputs.commit-sha }}.tar.gz
             npx serve -s .
             ```
-            
+
             ---
             *Generated automatically from commit ${{ steps.commit-info.outputs.commit-sha }}*
           files: |
