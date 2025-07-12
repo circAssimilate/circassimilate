@@ -16,14 +16,13 @@ const Terminal: React.FC = () => {
     setTimeout(() => setIsUnrecognizedCommand(false), 500)
   }, [isUnrecognizedCommand])
 
-  // TODO: (circassimilate) Update these descriptions
   const commands: Command[] = [
-    { topic: 'prototype', description: 'Prototyping - From idea to working demo' },
-    { topic: 'slack', description: 'Slack Platform Apps - Custom workflow automation' },
-    { topic: 'web', description: 'Web Development - Modern web applications, websites, and blogs' },
-    { topic: 'mac', description: 'macOS Development - Desktop applications for Mac' },
-    { topic: 'ios', description: 'iOS Development - Native iPhone and iPad apps' },
-    { topic: 'ai', description: 'AI-Powered Apps - The sky is the limit' },
+    { topic: 'web', description: 'Web Development - Modern web applications, websites, and portfolios' },
+    { topic: 'slack', description: 'Slack Platform Apps - Automate team processes and communication' },
+    { topic: 'apple', description: 'iOS & macOS Development - applications for the Apple platform' },
+    { topic: 'ai', description: 'Artificial Intelligence - The sky is the limit' },
+    { topic: 'prototype', description: 'Prototyping - Bringing ideas to life' },
+    { topic: 'consult', description: 'Consultation - Technical brainstorming and collaboration' },
     { topic: 'contact', description: 'Say Hello - Drop me a line at derek@circassimilate.com' },
   ];
 
@@ -62,10 +61,13 @@ const Terminal: React.FC = () => {
     <div className="terminal">
       <div className="terminal-title">
         <h2>CIRCASSIMILATE TERMINAL</h2>
-      <div className="terminal-subtitle"></div>
-        <p>Type one of the following commands to learn more about how I can help:</p>
-        <p className={"hint" + (isUnrecognizedCommand ? " unrecognized-command" : "")}>
-          {'> '}{commands.map((command) => command.topic).join(", ")}
+      </div>
+      <div className="terminal-subtitle">
+        <p>
+          Type one of the following commands to learn more about the things I love to do:&nbsp;
+          <span className={"hint" + (isUnrecognizedCommand ? " unrecognized-command" : "")}>
+            {commands.map((command) => command.topic).join(", ")}
+          </span>
         </p>
       </div>
       
