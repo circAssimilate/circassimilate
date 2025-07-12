@@ -1,14 +1,30 @@
+interface Metric {
+  id: string;
+  name: string;
+  value: number;
+}
+
+interface Connection {
+  effectiveType?: string;
+}
+
+declare global {
+  interface Navigator {
+    connection?: Connection;
+  }
+}
+
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
 
-function getConnectionSpeed() {
+function getConnectionSpeed(): string {
   return 'connection' in navigator &&
-    navigator['connection'] &&
-    'effectiveType' in navigator['connection']
-    ? navigator['connection']['effectiveType']
+    navigator.connection &&
+    'effectiveType' in navigator.connection
+    ? navigator.connection.effectiveType || ''
     : '';
 }
 
-export function sendToVercelAnalytics(metric) {
+export function sendToVercelAnalytics(metric: Metric): void {
   const analyticsId = process.env.REACT_APP_VERCEL_ANALYTICS_ID;
   if (!analyticsId) {
     return;
