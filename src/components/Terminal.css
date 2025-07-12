@@ -18,18 +18,19 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    transparent 50%,
-    rgba(0, 255, 0, 0.03) 50%
-  );
+  background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%);
   background-size: 100% 4px;
   pointer-events: none;
   animation: scanlines 0.1s linear infinite;
 }
 
 @keyframes scanlines {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(4px); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
+  }
 }
 
 .terminal-title {
@@ -55,7 +56,8 @@
   margin-bottom: 5px;
 }
 
-.terminal-subtitle p, .terminal-subtitle span {
+.terminal-subtitle p,
+.terminal-subtitle span {
   color: #00aa00;
   font-size: 7px;
   line-height: 1.4em;

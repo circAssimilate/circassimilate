@@ -18,9 +18,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    );
   background-size: 40px 40px;
   pointer-events: none;
 }
@@ -125,15 +133,15 @@
   .desktop-background {
     padding: 10px;
   }
-  
+
   .company-header h1 {
     font-size: 12px;
   }
-  
+
   .about-section p {
     font-size: 14px;
   }
-  
+
   .expertise li {
     font-size: 12px;
   }

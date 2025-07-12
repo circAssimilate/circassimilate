@@ -17,9 +17,7 @@ const RetroWindow: React.FC<RetroWindowProps> = ({ title, children }) => {
         </div>
         <div className="window-title">{title}</div>
       </div>
-      <div className="window-content">
-        {children}
-      </div>
+      <div className="window-content">{children}</div>
     </div>
   );
 };

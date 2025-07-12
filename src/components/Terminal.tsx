@@ -9,21 +9,45 @@ interface Command {
 const Terminal: React.FC = () => {
   const [userInput, setUserInput] = useState<string>('');
   const [terminalOutput, setTerminalOutput] = useState<string[]>([]);
-  const [isUnrecognizedCommand, setIsUnrecognizedCommand] = useState<boolean>(false);
+  const [isUnrecognizedCommand, setIsUnrecognizedCommand] =
+    useState<boolean>(false);
 
   useEffect(() => {
-    if (!isUnrecognizedCommand) { return };
-    setTimeout(() => setIsUnrecognizedCommand(false), 500)
-  }, [isUnrecognizedCommand])
+    if (!isUnrecognizedCommand) {
+      return;
+    }
+    setTimeout(() => setIsUnrecognizedCommand(false), 500);
+  }, [isUnrecognizedCommand]);
 
   const commands: Command[] = [
-    { topic: 'web', description: 'Web Development - Modern web applications, websites, and portfolios' },
-    { topic: 'slack', description: 'Slack Platform Apps - Automate team processes and communication' },
-    { topic: 'apple', description: 'iOS & macOS Development - applications for the Apple platform' },
-    { topic: 'ai', description: 'Artificial Intelligence - The sky is the limit' },
+    {
+      topic: 'web',
+      description:
+        'Web Development - Modern web applications, websites, and portfolios',
+    },
+    {
+      topic: 'slack',
+      description:
+        'Slack Platform Apps - Automate team processes and communication',
+    },
+    {
+      topic: 'apple',
+      description:
+        'iOS & macOS Development - applications for the Apple platform',
+    },
+    {
+      topic: 'ai',
+      description: 'Artificial Intelligence - The sky is the limit',
+    },
     { topic: 'prototype', description: 'Prototyping - Bringing ideas to life' },
-    { topic: 'consult', description: 'Consultation - Technical brainstorming and collaboration' },
-    { topic: 'contact', description: 'Say Hello - Drop me a line at derek@circassimilate.com' },
+    {
+      topic: 'consult',
+      description: 'Consultation - Technical brainstorming and collaboration',
+    },
+    {
+      topic: 'contact',
+      description: 'Say Hello - Drop me a line at derek@circassimilate.com',
+    },
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,24 +56,26 @@ const Terminal: React.FC = () => {
   };
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if ((e.ctrlKey && e.key === "c") || (e.metaKey && e.key === "k")) {
+    if ((e.ctrlKey && e.key === 'c') || (e.metaKey && e.key === 'k')) {
       clearTerminal();
       return;
     }
-    if (e.key !== "Enter") {
+    if (e.key !== 'Enter') {
       return;
     }
-    if (userInput === "clear") {
+    if (userInput === 'clear') {
       setUserInput('');
       clearTerminal();
       return;
     }
-    const commandDescription = commands.find(command => command.topic === userInput)?.description
+    const commandDescription = commands.find(
+      command => command.topic === userInput
+    )?.description;
     if (commandDescription) {
       setTerminalOutput([...terminalOutput, commandDescription]);
       setUserInput('');
     } else {
-      setIsUnrecognizedCommand(true)
+      setIsUnrecognizedCommand(true);
     }
   };
 
@@ -64,23 +90,29 @@ const Terminal: React.FC = () => {
       </div>
       <div className="terminal-subtitle">
         <p>
-          Type one of the following commands to learn more about the things I love to do:&nbsp;
-          <span className={"hint" + (isUnrecognizedCommand ? " unrecognized-command" : "")}>
-            {commands.map((command) => command.topic).join(", ")}
+          Type one of the following commands to learn more about the things I
+          love to do:&nbsp;
+          <span
+            className={
+              'hint' + (isUnrecognizedCommand ? ' unrecognized-command' : '')
+            }
+          >
+            {commands.map(command => command.topic).join(', ')}
           </span>
         </p>
       </div>
-      
+
       <div className="terminal-input">
         {terminalOutput.length > 0 && (
-        <div className="command-descriptions">
-          {terminalOutput.map((service, index) => (
-            <div key={index} className="prompt">
-              {'> '}{service}
-            </div>
-          ))}
-        </div>
-      )}
+          <div className="command-descriptions">
+            {terminalOutput.map((service, index) => (
+              <div key={index} className="prompt">
+                {'> '}
+                {service}
+              </div>
+            ))}
+          </div>
+        )}
         <div className="input-line">
           <span className="prompt">{'>'}</span>
           <input

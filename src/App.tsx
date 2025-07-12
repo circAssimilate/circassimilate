@@ -13,7 +13,9 @@ const App: React.FC = () => {
             <div className="company-header">
               <h1>CIRCASSIMILATE</h1>
               <p className="tagline">/SIRK-uh-SIM-uh-let/</p>
-              <p className="subtitle">Derek Hammond - Builder of Software & Teams</p>
+              <p className="subtitle">
+                Derek Hammond - Builder of Software & Teams
+              </p>
 
               <Socials />
             </div>
@@ -21,13 +23,33 @@ const App: React.FC = () => {
             <div className="about-section">
               <h2>ABOUT</h2>
               <p>
-                Hi. My name is <em>Derek Hammond</em> and I get excited about creating <a href="https://longform.asmartbear.com/slc/" target='_blank' rel="noreferrer">simple, lovable, and complete</a> applications that can turn into powerful products with rapid learning and thoughtful iteration.
+                Hi. My name is <em>Derek Hammond</em> and I get excited about
+                creating{' '}
+                <a
+                  href="https://longform.asmartbear.com/slc/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  simple, lovable, and complete
+                </a>{' '}
+                applications that can turn into powerful products with rapid
+                learning and thoughtful iteration.
               </p>
               <div className="expertise">
                 <h3>THINGS I LOVE</h3>
                 <ul>
                   <li>🌐 Modern web applications</li>
-                  <li>💬 Custom Slack Platform apps (<a href="https://docs.slack.dev/" target="_blank" rel="noopener noreferrer">docs</a>)</li>
+                  <li>
+                    💬 Custom Slack Platform apps (
+                    <a
+                      href="https://docs.slack.dev/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      docs
+                    </a>
+                    )
+                  </li>
                   <li>🍎 iOS & macOS native applications</li>
                   <li>🕸️ Websites and portfolios</li>
                   <li>🤖 AI-powered solutions</li>
@@ -36,13 +58,13 @@ const App: React.FC = () => {
                 </ul>
               </div>
             </div>
-            
+
             <Terminal />
           </div>
         </RetroWindow>
       </div>
     </div>
   );
-}
+};
 
 export default App;
