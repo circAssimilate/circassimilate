@@ -1,0 +1,106 @@
+name: Create Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check formatting
+        run: pnpm run format:check
+
+      - name: Run linting
+        run: pnpm run lint
+
+      - name: Run tests
+        run: pnpm run test:ci
+        env:
+          CI: true
+
+      - name: Build application
+        run: pnpm run build
+        env:
+          CI: true
+          GENERATE_SOURCEMAP: false
+
+      - name: Get commit info
+        id: commit-info
+        run: |
+          COMMIT_TITLE=$(git log -1 --pretty=%s)
+          COMMIT_BODY=$(git log -1 --pretty=%b)
+          COMMIT_SHA=$(git rev-parse --short HEAD)
+          TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+
+          # Create a clean tag name from commit title
+          TAG_NAME="v$(date +%Y.%m.%d)-${COMMIT_SHA}"
+
+          echo "commit-title=${COMMIT_TITLE}" >> $GITHUB_OUTPUT
+          echo "commit-body=${COMMIT_BODY}" >> $GITHUB_OUTPUT
+          echo "commit-sha=${COMMIT_SHA}" >> $GITHUB_OUTPUT
+          echo "tag-name=${TAG_NAME}" >> $GITHUB_OUTPUT
+          echo "timestamp=${TIMESTAMP}" >> $GITHUB_OUTPUT
+
+      - name: Create build archive
+        run: |
+          cd build
+          tar -czf ../circassimilate-build-${{ steps.commit-info.outputs.commit-sha }}.tar.gz .
+          cd ..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.commit-info.outputs.tag-name }}
+          name: 'Release ${{ steps.commit-info.outputs.tag-name }}: ${{ steps.commit-info.outputs.commit-title }}'
+          body: |
+            ## 🚀 ${{ steps.commit-info.outputs.commit-title }}
+
+            **Commit:** ${{ steps.commit-info.outputs.commit-sha }}  
+            **Build Date:** ${{ steps.commit-info.outputs.timestamp }}
+
+            ### Changes
+            ${{ steps.commit-info.outputs.commit-body }}
+
+            ### Build Artifacts
+            - **circassimilate-build-${{ steps.commit-info.outputs.commit-sha }}.tar.gz** - Production build ready for deployment
+
+            ### Deployment
+            ```bash
+            # Extract and serve
+            tar -xzf circassimilate-build-${{ steps.commit-info.outputs.commit-sha }}.tar.gz
+            npx serve -s .
+            ```
+
+            ---
+            *Generated automatically from commit ${{ steps.commit-info.outputs.commit-sha }}*
+          files: |
+            circassimilate-build-${{ steps.commit-info.outputs.commit-sha }}.tar.gz
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

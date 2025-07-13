@@ -1,0 +1,88 @@
+.retro-window {
+  background: #c0c0c0;
+  border: 3px outset #c0c0c0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.window-header {
+  background: linear-gradient(90deg, #0080ff 0%, #004080 100%);
+  color: white;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #808080;
+  min-height: 20px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.window-button {
+  width: 16px;
+  height: 16px;
+  border: 1px outset #c0c0c0;
+  background: #c0c0c0;
+  cursor: pointer;
+  position: relative;
+}
+
+.window-button.close {
+  background: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.window-button.close::after {
+  content: '×';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  color: #000;
+  line-height: 1;
+}
+
+.window-button.minimize::after {
+  content: '_';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  color: #000;
+}
+
+.window-button.maximize::after {
+  content: '□';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8px;
+  color: #000;
+}
+
+.window-title {
+  flex: 1;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.window-content {
+  padding: 20px;
+  background: #c0c0c0;
+  min-height: 400px;
+  border: 1px inset #c0c0c0;
+}
