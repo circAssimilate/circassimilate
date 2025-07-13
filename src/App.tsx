@@ -12,7 +12,7 @@ const App: React.FC = () => {
           <div className="app-content">
             <div className="company-header">
               <h1>CIRCASSIMILATE</h1>
-              <p className="tagline">/SIRK-uh-SIM-uh-let/</p>
+              <p className="tagline">/SIRK-uh-SIM-uh-LāT/</p>
               <p className="subtitle">
                 Derek Hammond - Builder of Software & Teams
               </p>
