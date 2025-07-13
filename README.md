@@ -1,23 +1,13 @@
-# CircAssimilate
+# About CircAssimlate
 
-Single page app (https://circassimilate.com ) built with React/TypeScript and deployed with Vercel.
+I’m an Engineering Manager and experienced Tech Lead specialized in iOS, macOS, and web development with proven experience building native and web applications. I’ve led teams of up to 20 engineers, helping them grow and deliver great customer experiences. I work closely with Product and Design to build smart roadmaps that balance new features and technical health.
 
-## Available Scripts
+I get excited about creating [simple, lovable, and complete](https://longform.asmartbear.com/slc/) applications that can turn into powerful products with rapid learning and thoughtful iteration. Here are some things I especially love to do:
 
-In the project directory, you can run:
+- Web Development - Modern web applications, websites, and portfolios
+- Slack Platform Apps - Automate team processes and communication
+- iOS & macOS Development - applications for the Apple platform
+- Artificial Intelligence - The sky is the limit
+- Consultation - Technical brainstorming and collaboration
 
-### `npm start`
-
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes. You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+Say hello and drop me a line at derek@circassimilate.com.
