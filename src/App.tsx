@@ -32,8 +32,8 @@ const App: React.FC = () => {
                 >
                   simple, lovable, and complete
                 </a>{' '}
-                applications that can turn into powerful products with rapid
-                learning and thoughtful iteration.
+                applications — apps that grow into powerful products through
+                rapid learning and thoughtful iteration.
               </p>
               <div className="expertise">
                 <h3>THINGS I LOVE</h3>
