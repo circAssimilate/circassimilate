@@ -1,3 +1,8 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://circassimilate.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1

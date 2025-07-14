@@ -4,10 +4,14 @@ export default {
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^@vercel/analytics/react$': '<rootDir>/src/__mocks__/@vercel/analytics.ts',
   },
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!(@vercel/analytics)/)'
+  ],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
