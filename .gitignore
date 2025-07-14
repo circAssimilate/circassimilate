@@ -30,3 +30,6 @@ yarn-error.log*
 
 # AI
 .claude/*
+
+# Auto-generated files (generated during deployment)
+/public/sitemap.xml

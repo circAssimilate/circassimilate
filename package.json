@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && eslint src --ext .ts,.tsx,.js,.jsx && vite build",
+    "build:production": "tsc && eslint src --ext .ts,.tsx,.js,.jsx && node scripts/generate-sitemap.js && vite build",
     "preview": "vite preview",
     "test": "jest",
     "test:ci": "jest --coverage --watchAll=false",
