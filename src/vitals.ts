@@ -25,7 +25,7 @@ function getConnectionSpeed(): string {
 }
 
 export function sendToVercelAnalytics(metric: Metric): void {
-  const analyticsId = process.env.REACT_APP_VERCEL_ANALYTICS_ID;
+  const analyticsId = import.meta.env.VITE_VERCEL_ANALYTICS_ID;
   if (!analyticsId) {
     return;
   }

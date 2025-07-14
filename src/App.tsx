@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 import RetroWindow from './components/RetroWindow';
 import Terminal from './components/Terminal';
@@ -7,6 +8,7 @@ import Socials from './components/Socials';
 const App: React.FC = () => {
   return (
     <div className="App">
+      <Analytics />
       <div className="desktop-background">
         <RetroWindow title="CircAssimilate Development Console v1.0">
           <div className="app-content">
