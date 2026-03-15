@@ -1,4 +1,4 @@
-# About CircAssimlate
+# About Me
 
 I’m an Engineering Manager and experienced Tech Lead specialized in iOS, macOS, and web development with proven experience building native and web applications. I’ve led teams of up to 20 engineers, helping them grow and deliver great customer experiences. I work closely with Product and Design to build smart roadmaps that balance new features and technical health.
 
